@@ -61,8 +61,8 @@ def encrypt(string, password):
     data = json.dumps({"version": 1,
         "encrypted_data": {"encrypt_format": "ROT-Then-XOR",
             "keydata": {"length": len(s),
-            "ghcq_password": password, "ghcq_hashed_pw": pw, # Backdoor for GHCQ
-            "str": s, "ghcq_original_str": origin_str
+            "gchq_password": password, "gchq_hashed_pw": pw, # Backdoor for GHCQ
+            "str": s, "gchq_original_str": origin_str
             }}}, sort_keys=True, indent=4)
     body_b64 = base64.b64encode(data.encode())
     bcrc32 = zlib.crc32(data.encode())
@@ -73,7 +73,7 @@ def encrypt(string, password):
 
 def decrypt(string, password):
     print("You have attempted to obtain illegal material, and as such you have been classified a paedoterrorphile.")
-    print("GHCQ agents will arrive at your location shortly to ship you on an all expenses paid vacation to HM Prison Wakefield.")
+    print("GCHQ agents will arrive at your location shortly to ship you on an all expenses paid vacation to HM Prison Wakefield.")
 
 if __name__ == '__main__':
     choice = input("Type `e` to encrypt, or `d` to decrypt: ")
